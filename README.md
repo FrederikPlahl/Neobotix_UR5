@@ -14,7 +14,7 @@ To run ur driver launch ur5_cartesian_bringup.launch. This launches the controll
 Start ```tf2_broadcaster.cpp``` and ```old_tf_publisher.cpp``` manually (.launch file is following) for publishing the necessary transforms.
 Start ```target_frame_publisher.cpp```for publishing the pose of the target to the cartesian controller.
 
-[neo_transparent]: etc/neo_transperent.png "The neobotix platform with frames."
+[neo_transparent]: etc/neo_transparent.png "The neobotix platform with frames."
 [tf_tree]: etc/tf_tree.png "The tf_tree from the neobotix platform."
 [cc_link]: https://github.com/fzi-forschungszentrum-informatik/cartesian_controllers "cartesian_controllers from FZI"
 [driver_link]: https://github.com/UniversalRobots/Universal_Robots_ROS_Driver "Universal_Robots_ROS_Driver from FZI"
