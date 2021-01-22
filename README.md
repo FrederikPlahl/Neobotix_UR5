@@ -4,9 +4,11 @@ Using [cartesian_controllers][cc_link] and [Universal_Robots_ROS_Driver][driver_
 You need to have these in your workspace.
 
 The ```tf2_broadcaster.cpp``` publishes the fix transform from base_link to base.
+
 ![The neobotix platform with frames.][neo_transparent]
 
 The ```old_tf_publisher.cpp``` publishes the transforms of all links at the moment of starting the node.
+
 ![The tf_tree from the neobotix platform.][tf_tree]
 
 In your ```.../config/``` add ```!!!!The cartesian config yaml file!!!!```.
