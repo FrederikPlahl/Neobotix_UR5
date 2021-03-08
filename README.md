@@ -11,6 +11,10 @@ The ```old_tf_publisher.cpp``` publishes the transforms of all links at the mome
 
 ![The tf_tree from the neobotix platform.][tf_tree]
 
+The ```target_frame_publisher.cpp``` calculates and publishes the target frame.
+
+The ```debug_tool.cpp``` calculates the error between current and target pose and publishes it.
+
 # Set up the controller:
 
 1. In your ```Universal_Robots_ROS_Driver/ur_robot_driver/config/ ``` add [```ur5_cartesian_controllers.yaml```][ur5_cartesian_controllers.yaml] 
