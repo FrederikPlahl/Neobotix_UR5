@@ -1,7 +1,7 @@
 # Neobotix_UR5
 
 Using [cartesian_controllers][cc_link] and [Universal_Robots_ROS_Driver][driver_link] as a basis.
-You need to have these in your workspace.
+Make sure you have installed these correctly in your workspace.
 
 The ```tf2_broadcaster.cpp``` publishes the fix transform from base_link to base.
 
@@ -11,15 +11,44 @@ The ```old_tf_publisher.cpp``` publishes the transforms of all links at the mome
 
 ![The tf_tree from the neobotix platform.][tf_tree]
 
+# Set up the controller:
+
 1. In your ```Universal_Robots_ROS_Driver/ur_robot_driver/config/ ``` add [```ur5_cartesian_controllers.yaml```][ur5_cartesian_controllers.yaml] 
 
 2. In your ```Universal_Robots_ROS_Driver/ur_robot_driver/launch/ ``` add [```ur5_cartesian_controllers_bringup.launch```][ur5_cartesian_controllers_bringup.launch], [```ur_common_cartesian.launch```][ur_common_cartesian.launch] and [```ur_control_cartesian.launch```][ur_control_cartesian.launch].
 
-3. To run the driver of the UR, launch ur5_cartesian_bringup.launch. This launches the controllers and starts them after running the ```external_ROS_control``` program on the UR5.
+3. Build the packages in your workspace
 
-4. Start ```tf2_broadcaster.cpp``` and ```old_tf_publisher.cpp``` manually (.launch file is following) for publishing the necessary transforms.
+```bash
+$ cd ros_workspace
+$ catkin_make
+```
 
-5. Start ```target_frame_publisher.cpp```for publishing the pose of the target to the cartesian controller.
+# Launch:
+1. Start Neobotix PC and its autostart launch file
+
+2. In a new terminal - Launch the driver and provide IP and kinematics configuration on Neobotix PC
+
+```bash
+$ roslaunch ur_robots_driver ur5_cartesian_bringup.launch robot_ip:=192.168.1.20 kinematics_config:=($ rospack find ur_calibration)/etc/hska_ur5_calibration.yaml
+```
+
+3. Start ```ROS_external_control``` on UR5 touchpad --> driver terminal should confirm with ```Robot ready to receive control commands```
+
+4. In a new terminal - Launch nodes for calculating and publishing the target frame
+
+```bash
+$ roslaunch hska_neo hold_tcp.launch
+```
+
+# For evaluation:
+1. In a new terminal
+
+```bash
+$ roslaunch hska_neo debug.launch
+```
+
+This should open a window plotting the distance between current and target pose of the endeffector.
 
 [neo_transparent]: etc/neo_transparent.png "The neobotix platform with frames."
 [tf_tree]: etc/tf_tree.png "The tf_tree from the neobotix platform."
