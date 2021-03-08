@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="baseBase_link_broadcaster" pkg="hska_neo" type="tf2_broadcaster"/>
+    <node name="old_tf_publisher" pkg="hska_neo" type="old_tf_publisher"/>
+    <node name="target_publisher" pkg="hska_neo" type="target_frame_publisher"/>
+</launch>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="debug_tool" pkg="hska_neo" type="debug_tool"/>
+    <node name="debug_base" pkg="hska_neo" type="debug_base"/>
+    <node name="rqt_plot" pkg="rqt_plot" type="rqt_plot"/>
+</launch>
